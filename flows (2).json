@@ -1,0 +1,145 @@
+[
+    {
+        "id": "57a74af766da80ed",
+        "type": "inject",
+        "z": "34c1fee8ddfab605",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "{\"Distancia\":48.5,\"Temperatura\":10.23,\"Valor Ldr\":6}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 340,
+        "wires": [
+            [
+                "61b4017462ee0450"
+            ]
+        ]
+    },
+    {
+        "id": "c0d4963445648da2",
+        "type": "serial in",
+        "z": "34c1fee8ddfab605",
+        "name": "",
+        "serial": "78a44b5056332dbe",
+        "x": 210,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6cb95d949ce03cf",
+        "type": "mqtt out",
+        "z": "34c1fee8ddfab605",
+        "name": "",
+        "topic": "Arduino",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7f948faa00519987",
+        "x": 620,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "61b4017462ee0450",
+        "type": "json",
+        "z": "34c1fee8ddfab605",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "c6cb95d949ce03cf",
+                "6e18a4143fc4da1b"
+            ]
+        ]
+    },
+    {
+        "id": "6e18a4143fc4da1b",
+        "type": "debug",
+        "z": "34c1fee8ddfab605",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "78a44b5056332dbe",
+        "type": "serial-port",
+        "serialport": "COM1",
+        "serialbaud": "57600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "7f948faa00519987",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
